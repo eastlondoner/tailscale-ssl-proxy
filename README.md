@@ -24,6 +24,7 @@ Then add the binary to your PATH:
 Move the binary to `/usr/local/bin`
 
 ```sh
+# Move the binary to /usr/local/bin
 mv ./bin/tailscale-ssl-proxy /usr/local/bin
 ```
 
@@ -113,4 +114,3 @@ You must have Golang installed on your system along with `make`. Then simply clo
 
 ## Attribution
 Forked from <a href="https://github.com/suyashkumar/ssl-proxy">ssl-proxy by Suyash Kumar</a>
-Icons made by <a href="https://www.flaticon.com/authors/those-icons" title="Those Icons">Those Icons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
