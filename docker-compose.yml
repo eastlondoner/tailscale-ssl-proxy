@@ -1,0 +1,51 @@
+version: '3'
+services:
+
+  clean:
+    init: true
+    profiles: ['clean']
+    build: .
+    volumes:
+      - $PWD/:/go/src/github.com/eastlondoner/tailscale-ssl-proxy/
+
+  upgrade-deps:
+    init: true
+    profiles: ['upgrade-deps']
+    build: .
+    volumes:
+      - $PWD/:/go/src/github.com/eastlondoner/tailscale-ssl-proxy/
+
+  test:
+    init: true
+    profiles: ['test']
+    build: .
+    environment:
+      - CGO_ENABLED=0
+    volumes:
+      - $PWD/:/go/src/github.com/eastlondoner/tailscale-ssl-proxy/
+
+  build:
+    init: true
+    profiles: ['build']
+    build: .
+    environment:
+      - HOST_OS
+    volumes:
+      - $PWD/:/go/src/github.com/eastlondoner/tailscale-ssl-proxy/
+
+  build-all:
+    init: true
+    profiles: ['build-all']
+    build: .
+    environment: []
+    volumes:
+      - $PWD/:/go/src/github.com/eastlondoner/tailscale-ssl-proxy/
+
+  release:
+    init: true
+    profiles: ['release']
+    build: .
+    environment:
+      - GITHUB_TOKEN
+    volumes:
+      - $PWD/:/go/src/github.com/eastlondoner/tailscale-ssl-proxy/

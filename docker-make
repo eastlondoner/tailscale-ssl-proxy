@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+# make bash play nicely
+set -euo pipefail
+
+temp_env="docker-make.env"
+
+guess_os() {
+  # adjust archive name based on OS
+  case $(uname) in
+    Darwin) echo "HOST_OS=darwin" >> "${temp_env}" ;;
+    Linux) echo "HOST_OS=linux" >> "${temp_env}" ;;
+    Windows) echo "HOST_OS=windows" >> "${temp_env}" ;;
+  esac
+  true
+}
+
+if test -f ".auth/github.env"; then
+    cp ".auth/github.env" "${temp_env}"
+else 
+    echo "" > "${temp_env}"
+fi
+
+guess_os
+
+docker build --target "$1" -t "tailscale-ssl-proxy_$1" . > docker-make.log 2>&1
+docker compose --env-file "${temp_env}" --profile "$1" -f docker-compose.yml up || echo "docker-compose failed! Cleaning up..."
+docker compose --profile "$1" -f  docker-compose.yml down
