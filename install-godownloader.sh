@@ -8,4 +8,8 @@ echo "9e83cc74e67a945ad770c1b9851d9c048ecd327bcd5971c852ffaa53329cf69c  build/go
 
 mkdir -p build
 wget -P build https://github.com/goreleaser/godownloader/releases/download/v0.1.0/godownloader_0.1.0_Linux_x86_64.tar.gz
-sha256sum -c godownloader.checksums && tar -xzf build/godownloader_0.1.0_Linux_x86_64.tar.gz -C build
+
+# only untar and copy if the sha check passes
+sha256sum -c godownloader.checksums && tar -xzf build/godownloader_0.1.0_Linux_x86_64.tar.gz -C build && mv build/godownloader /usr/local/bin 
+
+rm -rf build

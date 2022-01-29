@@ -23,6 +23,8 @@ fi
 
 guess_os
 
+echo "beginning docker build --target $1 ... (docker build logs will be written to docker-make.log)"
 docker build --target "$1" -t "tailscale-ssl-proxy_$1" . > docker-make.log 2>&1
+echo "beginning docker build --target $1 complete. Tag: tailscale-ssl-proxy_$1"
 docker compose --env-file "${temp_env}" --profile "$1" -f docker-compose.yml up || echo "docker-compose failed! Cleaning up..."
 docker compose --profile "$1" -f  docker-compose.yml down

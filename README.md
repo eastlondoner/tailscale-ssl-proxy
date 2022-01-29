@@ -102,12 +102,11 @@ Simply include the `-redirectHTTP` flag when running the program.
 #### Build from source using Docker
 You can build `tailscale-ssl-proxy` for all platforms quickly using the included Docker configurations.
 
-If you have `docker-compose` installed:
+If you have `docker-compose` installed you can use the `./docker-make` script:
 ```sh
-docker build . -t tailscale-ssl-proxy_build-release
-docker-compose -f docker-compose.build.yml up
+./docker-make build
 ```
-will build linux, osx, and darwin binaries (x86) and place them in a `build/` folder in your current working directory.
+That will build a binary for your local system and place it in the root directory.
 
 #### Build from source locally
 You must have Golang installed on your system along with `make`. Then simply clone the repository and run `make`. 

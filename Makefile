@@ -62,5 +62,5 @@ build-all: build-linux build-darwin build-windows
 
 .PHONY: release
 release: go-install
-	./build/godownloader .godownloader.yaml > install-${BINARY}.sh
+	godownloader .godownloader.yaml > install-${BINARY}.sh
 	goreleaser release --rm-dist

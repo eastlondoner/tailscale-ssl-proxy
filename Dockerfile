@@ -3,7 +3,7 @@
 FROM golang:1.17.6-alpine3.15 AS base
 WORKDIR /go/src/github.com/eastlondoner/tailscale-ssl-proxy
 # Install OS dependencies
-RUN apk add --no-cache make git zip gcc
+RUN apk add --no-cache make
 # Download go dependencies (should be cached unless go.mod changes)
 COPY ./go.mod .
 RUN go mod download
@@ -31,6 +31,7 @@ ENTRYPOINT [ "make", "test" ]
 
 FROM base AS release
 # Install release dependencies
+RUN apk add --no-cache git
 RUN go get github.com/goreleaser/goreleaser@v1.4.1
 COPY ./install-godownloader.sh .
 RUN ./install-godownloader.sh
