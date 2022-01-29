@@ -35,7 +35,10 @@ TBC - need to figure out what the instructions for Windows systems are
 
 ```sh
 tailscale-ssl-proxy
+# Listening on [::]:443
+# Listening on [::]:80
 # Proxying calls from https://:443 (SSL/TLS) to http://localhost:8080
+# Redirecting http requests on :80 to https on port :443
 ```
 This will immediately fetch, real LetsEncrypt certificates for the machine's Tailscale address.
 
@@ -67,12 +70,18 @@ The ssl certificate files (including the private key) are written to the current
 
 ```sh
 tailscale-ssl-proxy -to :3000
+# Listening on [::]:443
+# Listening on [::]:80
+# Proxying calls from https://:443 (SSL/TLS) to http://localhost:3000
+# Redirecting http requests on :80 to https on port :443
 ```
 
 #### Disable HTTP -> HTTPS Redirect
 
 ```sh
 tailscale-ssl-proxy -redirectHTTP off
+# Listening on [::]:443
+# Proxying calls from https://:443 (SSL/TLS) to http://localhost:8080
 ```
 Simply include the `-redirectHTTP` flag when running the program.
 
@@ -80,6 +89,11 @@ Simply include the `-redirectHTTP` flag when running the program.
 
 ```sh
 tailscale-ssl-proxy -from 0.0.0.0:8443
+# Listening on [::]:8443
+# Listening on [::]:80
+# Proxying calls from https://0.0.0.0:8443 (SSL/TLS) to http://localhost:8080
+# WARN: You must serve on port :443 for the LetsEncrypt certs that tailscale uses to be valid
+# Redirecting http requests on :80 to https on port :8443
 ```
 Simply include the `-redirectHTTP` flag when running the program.
 
