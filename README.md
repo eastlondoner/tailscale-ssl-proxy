@@ -10,7 +10,7 @@ A handy way to add Tailscale SSL support to your locally running thing -- be it 
 ## Installation
 
 ```sh
-curl -L https://github.com/eastlondoner/tailscale-ssl-proxy/releases/download/latest/install-tailscale-ssl-proxy.sh | sh -s
+curl -L https://github.com/eastlondoner/tailscale-ssl-proxy/releases/download/v0.0.3/install-tailscale-ssl-proxy.sh | sh -s
 ```
 
 ## Quickstart
