@@ -81,7 +81,7 @@ func main() {
 			log.Printf("Unable to listen on %s", *redirectHTTP)
 			log.Fatal(err)
 		} else {
-			log.Printf("Listening on %s", ln.Addr().String())
+			log.Printf("Listening on %s", redirectListener.Addr().String())
 		}
 
 		redirectTLS := func(w http.ResponseWriter, r *http.Request) {
