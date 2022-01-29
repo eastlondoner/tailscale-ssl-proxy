@@ -3,7 +3,9 @@
   <p align="center">Simple single-command SSL reverse proxy for Tailscale<p>
 </p>
 
-A handy and simple way to add Tailscale SSL support to your locally running thing --be it your personal jupyter notebook, nodejs app or whatever. `tailscale-ssl-proxy` uses the official (Tailscale go package)[https://pkg.go.dev/tailscale.com] to get trusted LetsEncrypt SSL certs and then proxies HTTPS traffic to your existing HTTP server in a single command. `tailscale-ssl-proxy` also redirects unencrypted HTTP traffic on port 80 to HTTPS.
+A handy way to add Tailscale SSL support to your locally running thing -- be it your personal jupyter notebook, nodejs app or any other http application. 
+
+`tailscale-ssl-proxy` uses the official <a href="https://pkg.go.dev/tailscale.com">Tailscale go package</a> to get trusted LetsEncrypt SSL certs and then proxies HTTPS traffic to your existing HTTP server in a single command. `tailscale-ssl-proxy` also redirects unencrypted HTTP traffic on port 80 to HTTPS.
 
 ## Installation
 
@@ -36,6 +38,10 @@ Usage of tailscale-ssl-proxy
   -to string
     	the address and port for which to proxy requests to (default "http://localhost:8080")
 ```
+
+## Warning
+
+The ssl certificate files (including the private key) are written to the current working directory as `cert.pem` and `key.pem` - that is the behaviour of the tailscale client. The private key is sensitive use at your own risk.
 
 ### Examples
 
