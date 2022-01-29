@@ -85,11 +85,19 @@ func main() {
 		}
 
 		redirectTLS := func(w http.ResponseWriter, r *http.Request) {
-			redirectURL := "https://"+r.URL.Hostname()
+			// Get the hostname, strip off port if present
+			hostname := r.Host
+			if strings.Contains(hostname, ":") {
+				hostname = hostname[:strings.LastIndex(hostname, ":")]
+			}
+
+			// TODO: strictly we should check that the hostname is present in the SSL certificates that we have before we do this redirect
+			redirectURL := "https://"+hostname
 			if port != "443" {
 				redirectURL = redirectURL+":"+port
 			}
 			redirectURL = redirectURL+r.RequestURI
+
 			http.Redirect(w, r, redirectURL, http.StatusMovedPermanently)
 		}
 

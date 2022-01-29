@@ -5,6 +5,15 @@ dist/
 docker-compose*
 Dockerfile
 *.pem
-release.sh
-test.sh
-upgrade-deps.sh
+
+# anything related to scripting docker
+docker-make*
+
+# all env files
+*.env
+
+# all dotfiles
+./.*
+
+# any log files
+*.log

@@ -1,7 +1,0 @@
-version: '2'
-services:
-  upgrade-deps:
-    build: .
-    volumes:
-      - $PWD/:/go/src/github.com/eastlondoner/tailscale-ssl-proxy/
-    command: make upgrade-deps
