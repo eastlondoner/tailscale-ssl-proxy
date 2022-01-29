@@ -29,7 +29,7 @@ mv ./bin/tailscale-ssl-proxy /usr/local/bin
 
 #### For Windows systems
 
-TODO: figure this out!
+TBC - need to figure out what the instructions for Windows systems are
 
 ## Quickstart
 
