@@ -13,7 +13,7 @@ This will fetch the latest version of tailscale-ssl-proxy for your operating sys
 
 ```sh
 # Install the correct binary to ./bin
-curl -L https://github.com/eastlondoner/tailscale-ssl-proxy/releases/download/v0.0.4/install-tailscale-ssl-proxy.sh | sh -s
+curl -L https://github.com/eastlondoner/tailscale-ssl-proxy/releases/download/v0.0.5/install-tailscale-ssl-proxy.sh | sh -s
 
 ```
 
