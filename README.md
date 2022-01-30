@@ -9,15 +9,16 @@ A handy way to add Tailscale SSL support to your locally running thing -- be it 
 
 ## Installation
 
-This will fetch the latest version of tailscale-ssl-proxy for your operating system and place it in `./bin/tailscale-ssl-proxy`
+Download the latest version of tailscale-ssl-proxy using the installer script in the github release:
 
 ```sh
 # Install the correct binary to ./bin
 curl -L https://github.com/eastlondoner/tailscale-ssl-proxy/releases/download/v0.0.5/install-tailscale-ssl-proxy.sh | sh -s
-
 ```
 
-Then add the binary to your PATH:
+The installer script will fetch the latest `tailscale-ssl-proxy` binary for your OS and place it in `./bin/tailscale-ssl-proxy`
+
+To use `tailscale-ssl-proxy` from anyhwere you now need to add it to your PATH:
 
 #### For most linux-based systems including Mac OS
 
