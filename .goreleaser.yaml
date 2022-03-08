@@ -14,7 +14,7 @@ builds:
       - "386"
     ignore:
       - goos: darwin
-        goarch: 386
+        goarch: "386"
       - goos: linux
         goarch: arm
 archives:
@@ -23,7 +23,6 @@ archives:
       linux: Linux
       windows: Windows
       386: i386
-      amd64: x86_64
 checksum:
   name_template: 'checksums.txt'
   extra_files:
