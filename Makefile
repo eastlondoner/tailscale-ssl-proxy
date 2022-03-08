@@ -53,6 +53,10 @@ build-linux: go-install
 build-darwin: go-install
 	GOOS=darwin GOARCH=amd64 go build -o build/${BINARY}-darwin-amd64 .
 
+.PHONY: build-darwin-m1
+build-darwin: go-install
+	GOOS=darwin GOARCH=arm64 go build -o build/${BINARY}-darwin-arm64 .
+
 .PHONY: build-windows
 build-windows: go-install
 	GOOS=windows GOARCH=amd64 go build -o build/${BINARY}-windows-amd64.exe .
