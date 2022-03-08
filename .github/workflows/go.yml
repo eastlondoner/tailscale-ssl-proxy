@@ -28,6 +28,6 @@ jobs:
       
     - name: Build
       run: |
-        go install github.com/goreleaser/goreleaser@v1.4.1
+        go install github.com/goreleaser/goreleaser@v1.6.1
         ./install-godownloader.sh .
         make build-all        

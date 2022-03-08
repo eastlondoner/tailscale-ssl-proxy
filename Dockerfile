@@ -32,7 +32,7 @@ ENTRYPOINT [ "make", "test" ]
 FROM base AS release
 # Install release dependencies
 RUN apk add --no-cache git
-RUN go get github.com/goreleaser/goreleaser@v1.4.1
+RUN go get github.com/goreleaser/goreleaser@v1.6.1
 COPY ./install-godownloader.sh .
 RUN ./install-godownloader.sh
 # Copy all the source and run make
