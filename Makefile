@@ -54,7 +54,7 @@ build-darwin: go-install
 	GOOS=darwin GOARCH=amd64 go build -o build/${BINARY}-darwin-amd64 .
 
 .PHONY: build-darwin-m1
-build-darwin: go-install
+build-darwin-m1: go-install
 	GOOS=darwin GOARCH=arm64 go build -o build/${BINARY}-darwin-arm64 .
 
 .PHONY: build-windows
@@ -62,7 +62,7 @@ build-windows: go-install
 	GOOS=windows GOARCH=amd64 go build -o build/${BINARY}-windows-amd64.exe .
 
 .PHONY: build-all
-build-all: build-linux build-darwin build-windows
+build-all: build-linux build-darwin build-windows build-darwin-m1
 
 .PHONY: release
 release: go-install
