@@ -19,8 +19,6 @@ jobs:
     - name: Get dependencies
       run: |
         go mod download
-        go get github.com/goreleaser/goreleaser@v1.4.1
-        ./install-godownloader.sh .
 
     - name: Build
       run: make
@@ -30,6 +28,8 @@ jobs:
       
     - name: Build
       run: |
+        go get github.com/goreleaser/goreleaser@v1.4.1
+        ./install-godownloader.sh .
         make build-all
         make release
         
