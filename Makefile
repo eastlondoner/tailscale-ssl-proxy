@@ -66,5 +66,6 @@ build-all: build-linux build-darwin build-windows build-darwin-m1
 
 .PHONY: release
 release: go-install
+	printenv
 	godownloader .godownloader.yaml > install-${BINARY}.sh
 	goreleaser release --rm-dist
