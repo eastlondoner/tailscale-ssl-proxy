@@ -28,7 +28,7 @@ jobs:
       
     - name: Build
       run: |
-        go get github.com/goreleaser/goreleaser@v1.4.1
+        go install github.com/goreleaser/goreleaser@v1.4.1
         ./install-godownloader.sh .
         make build-all
         make release
