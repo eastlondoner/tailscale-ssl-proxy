@@ -68,4 +68,4 @@ build-all: build-linux build-darwin build-windows build-darwin-m1
 release: go-install
 	printenv
 	godownloader .godownloader.yaml > install-${BINARY}.sh
-	goreleaser release --rm-dist
+	GITHUB_TOKEN="${GITHUB_TOKEN}" goreleaser release --rm-dist
