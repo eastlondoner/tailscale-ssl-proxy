@@ -30,6 +30,4 @@ jobs:
       run: |
         go install github.com/goreleaser/goreleaser@v1.4.1
         ./install-godownloader.sh .
-        make build-all
-        make release
-        
+        make build-all        
